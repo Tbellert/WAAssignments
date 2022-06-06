@@ -1,0 +1,236 @@
+/*Footer testimonial*/
+/*Page background*/
+/*Text background*/
+/*Blog*/
+/*facebook*/
+/*twitter*/
+/*github*/
+/*linkedin*/
+.section1 {
+  height: 100vh;
+}
+
+.section1 h1 {
+  text-align: center;
+  height: 80px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+  color: antiquewhite;
+  text-transform: uppercase;
+  background-color: #686de0;
+  -webkit-box-shadow: 0 0 10px white;
+          box-shadow: 0 0 10px white;
+}
+
+.testimonialwrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 20px;
+  -webkit-box-shadow: -1px 3px 4px #999898;
+          box-shadow: -1px 3px 4px #999898;
+}
+
+.testimonialwrapper__card {
+  position: relative;
+}
+
+.testimonialwrapper__card__h2 {
+  position: absolute;
+  text-align: center;
+  margin: 40px 35px 0px 35px;
+  font-size: 0.8em;
+  line-height: 1.8;
+  font-weight: 300;
+  color: #555555;
+  text-align: start;
+}
+
+.testimonialwrapper__card img {
+  position: absolute;
+  top: 190px;
+  left: 95px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.testimonialwrapper__footer {
+  position: absolute;
+  top: 250px;
+  left: 0px;
+  border-radius: 0px 0px 20px 20px;
+  background-color: #686de0;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.testimonialwrapper__footer__h2 {
+  color: #fff;
+  padding-top: 70px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.testimonialwrapper__footer__p {
+  color: #b3b6eb;
+}
+
+.section2 {
+  margin: 0px 0px 50px 0px;
+}
+
+.section2 h1 {
+  text-align: center;
+  height: 80px;
+  padding-top: 50px;
+  margin-bottom: 50px;
+  color: antiquewhite;
+  text-transform: uppercase;
+  background-color: #686de0;
+  -webkit-box-shadow: 0 0 10px white;
+          box-shadow: 0 0 10px white;
+}
+
+.portfoliowrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 40px;
+}
+
+.portfoliowrapper__container {
+  position: relative;
+}
+
+.portfoliowrapper__image {
+  display: block;
+  border-radius: 10px;
+}
+
+.portfoliowrapper__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: 500ms ease;
+  transition: 500ms ease;
+  background-color: #232b3d;
+  border-radius: 10px;
+}
+
+.portfoliowrapper__button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.portfoliowrapper__container:hover .portfoliowrapper__overlay {
+  opacity: 1;
+}
+
+.socialmedia {
+  position: fixed;
+  list-style-type: none;
+  bottom: 100px;
+  right: -205px;
+  z-index: 1;
+}
+
+.socialmedia__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0 0 10px white;
+          box-shadow: 0 0 10px white;
+  background-color: #686de0;
+}
+
+.socialmedia__header__text {
+  text-transform: uppercase;
+  color: antiquewhite;
+  padding: 20px 10px 20px 10px;
+}
+
+.socialmedia__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  color: white;
+  -webkit-transition: 500ms -webkit-transform 0ms ease;
+  transition: 500ms -webkit-transform 0ms ease;
+  transition: 500ms transform 0ms ease;
+  transition: 500ms transform 0ms ease, 500ms -webkit-transform 0ms ease;
+}
+
+.socialmedia__icon::before {
+  margin-right: 30px;
+  padding: 10px;
+}
+
+.socialmedia__text {
+  text-decoration: underline;
+  text-align: end;
+}
+
+.socialmedia__button:hover {
+  -webkit-transform: translateX(-200px);
+          transform: translateX(-200px);
+  cursor: pointer;
+}
+
+.socialmedia #blog {
+  background-color: #e17b77;
+}
+
+.socialmedia #twitter {
+  background-color: #00aced;
+}
+
+.socialmedia #linkedin {
+  background-color: #007bb6;
+}
+
+.socialmedia #facebook {
+  background-color: #3b5998;
+}
+
+.socialmedia #github {
+  background-color: #333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  background-color: #c3cfe2;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+/*# sourceMappingURL=style.css.map */

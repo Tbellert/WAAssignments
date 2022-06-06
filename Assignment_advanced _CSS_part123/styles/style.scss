@@ -1,0 +1,15 @@
+@import "./constants";
+@import "./part1";
+@import "./part2";
+@import "./part3";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    position: relative;
+    background-color: $background;
+    font-family:$font_family;
+}

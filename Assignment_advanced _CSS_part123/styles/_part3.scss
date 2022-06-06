@@ -1,0 +1,57 @@
+.socialmedia{
+    position: fixed;
+    list-style-type: none;
+    bottom: 100px;
+    right: -205px;
+    z-index: 1;
+    &__header{
+        display: flex;
+        box-shadow: $boxshadow;
+        background-color: $footer;
+        &__text{
+            text-transform: uppercase;
+            color: antiquewhite;
+            padding: 20px 10px 20px 10px;
+        }
+    }
+    &__button{
+        display: flex;
+        padding: 20px;
+        color: white;
+        transition: 500ms transform 0ms ease;
+    }
+
+    &__icon::before{
+        margin-right: 30px;
+        padding:10px;
+    }
+
+    &__text{
+        text-decoration: underline;
+        text-align: end;
+    }
+
+    &__button:hover{
+        transform: translateX(-200px);
+        cursor: pointer;
+    }
+    #blog{
+        background-color: $social_blog;
+    }
+
+    #twitter{
+        background-color: $social_twitter;
+    }
+
+    #linkedin{
+    background-color: $social_linkedin;
+    }
+
+    #facebook{
+    background-color: $social_facebook;
+    }
+
+    #github{
+    background-color: $social_github;
+    }
+}

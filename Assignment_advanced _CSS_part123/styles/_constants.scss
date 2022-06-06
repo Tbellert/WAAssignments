@@ -1,0 +1,29 @@
+/*Footer testimonial*/
+$footer: #686de0;
+/*Page background*/
+$background: #c3cfe2;
+/*Text background*/
+$textbckgrnd: #fff;
+/*Blog*/
+$social_blog: #e17b77;
+/*facebook*/
+$social_facebook: #3b5998;
+/*twitter*/
+$social_twitter: #00aced;
+/*github*/
+$social_github: #333;
+/*linkedin*/
+$social_linkedin: #007bb6;
+$font_family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+$font_size: 0.8em;
+$textcolor_card: rgb(85, 85, 85);
+$textcolor_footer: rgb(179, 182, 235);
+$shadowcolor: rgb(153, 152, 152);
+$boxshadow: 0 0 10px white;
+
+
+@mixin flex_center() {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
