@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Color Toggle</title>
+    <meta name="Choose a color for background" content="colortoggle" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="icon" href="images/hamburger.png" />
+    <script src="script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/bdf882e752.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body id="body" class="home-background">
+    <div onclick="openNav()" class="dropdown">
+      <i id="dropdownimg" class="dropdown__img fa-solid fa-bars fa-2xl"></i>
+      <div id="dropdownNav" class="dropdown-content">
+        <ul class="dropdown-content__list">
+          <li class="__item">
+            <label class="__item__label">
+              <i id="check" class="fa-solid fa-circle-check"></i>
+            </label>
+            <label class="__item__label">Color</label>
+          </li>
+          <li class="__item home-background">
+            <a id="home" class="__list__item__link" href="#"></a>
+            <input label="1" type="radio" id="radioHome" name="color" checked />
+          </li>
+          <li class="__item red-background">
+            <a id="red" class="__list__item__link" href="#"></a>
+            <input label="2" type="radio" id="radioRed" name="color" />
+          </li>
+          <li class="__item green-background">
+            <a id="green" class="__list__item__link" href="#"></a>
+            <input label="3" type="radio" id="radioGreen" name="color" />
+          </li>
+          <li class="__item blue-background">
+            <a id="blue" class="__list__item__link" href="#"></a>
+            <input label="4" type="radio" id="radioBlue" name="color" />
+          </li>
+          <li class="__item orange-background">
+            <a id="orange" class="__list__item__link" href="#"></a>
+            <input label="5" type="radio" id="radioOrange" name="color" />
+          </li>
+          <li class="__item purple-background">
+            <a id="purple" class="__list__item__link" href="#"></a>
+            <input label="6" type="radio" id="radioPurple" name="color" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="colortext">
+      <p id="currentcolor">Hello World.</p>
+    </div>
+  </body>
+</html>
