@@ -3,13 +3,13 @@ const colorClass = ["home-background", "red-background", "green-background", "bl
 const colors = ["Hello World.", "Red", "Green", "Blue", "Orange", "Purple"];
 
 // Open the dropdown menu
-let openNav = function() {
+const openNav = function() {
     document.getElementById("dropdownNav").classList.toggle("dropitdown");
 };
 
 
 // Add backgroundcolor + display color text, remove class attribute 
-let addColor = function(colorClassNumber, colorNumber){
+const addColor = function(colorClassNumber, colorNumber){
     colorClassNumber = colorClass[colorClassNumber];
     colorNumber = colors[colorNumber];
     document.getElementById("body").removeAttribute ('class');
