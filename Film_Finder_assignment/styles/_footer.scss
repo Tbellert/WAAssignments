@@ -1,0 +1,9 @@
+.footer{
+    @include flex_center;
+    height: 13vh;
+    font-size: 18px;
+    box-shadow: 0 0 10px $boxcolor;
+    &_content{
+        padding: 10px;
+    }
+}

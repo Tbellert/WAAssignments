@@ -1,0 +1,12 @@
+$margin: 20px;
+$background: #000000;
+$titlefont: 'Luckiest Guy', cursive;
+$boxcolor: rgb(99, 107, 216);
+$color: #eee;
+
+@mixin flex_center() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

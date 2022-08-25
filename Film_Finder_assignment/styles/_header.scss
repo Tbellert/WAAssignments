@@ -1,0 +1,97 @@
+.header{
+    text-align: center;
+    margin-top: $margin;
+    &_title{
+        margin-bottom: $margin;
+        font-size: 2.5em;
+        font-family: $titlefont;
+    }
+    &_nav{
+        @include flex_center;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        margin-bottom: $margin;
+        background-color: $background;
+        padding: 10px;
+        box-shadow: 0 0 10px $boxcolor;
+        &_radio{
+            height: fit-content;
+            width: 220px;
+            // container
+            &_label{
+                display: block;
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+                cursor: pointer;
+                font-size: 15px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                // do not show default button
+                &_btn{
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+                // custom radiobutton
+                &_checkmark{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 25px;
+                    width: 30px;
+                    background-color: $color;
+                    border-radius: 10px;
+
+                }
+                // custom dot
+                &_checkmark:after{
+                    content: "";
+                    position: absolute;
+                    display: none;
+                    top: 9px;
+                    left: 11px;
+                    width: 9px;
+                    height: 8px;
+                    border-radius: 2px;
+                    background: $color;
+                }
+            }
+            // color of custom btn on hover
+            &:hover &_label_btn ~ &_label_checkmark{
+                background-color: #ccc;
+            }
+            // background color of button when checked
+            &_label &_label_btn:checked ~ &_label_checkmark{
+                background-color: $boxcolor;
+            }
+            // show dot when checked
+            &_label &_label_btn:checked ~ &_label_checkmark:after{
+                display: block;
+            }
+        }
+        &_input{
+            height: 40px;
+            width: 250px;
+            margin-bottom: 10px;
+            &_searchbar{
+                height: 100%;
+                width: 250px;
+                text-align: center;
+                border-radius: 10px;
+                &:focus{
+                    outline: none;
+                    transform: scale(1.10);
+                    }
+                &:hover{
+                    transform: scale(1.10);
+                    background-color: $color;
+                }
+            }
+        }
+    }
+}
+

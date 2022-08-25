@@ -1,0 +1,18 @@
+.content{
+    height: 100%;
+    &_wrapper{
+        &_movielist{
+            @include flex_center;
+            list-style-type: none;
+        }
+    }    
+}
+
+li{
+    margin: 10px;
+    &:hover{
+        scale: (1.05);
+        box-shadow: 0 0 10px $boxcolor;
+        
+    }
+}
