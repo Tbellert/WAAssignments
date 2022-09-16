@@ -1,0 +1,15 @@
+@import "./constants";
+@import "./content";
+@import "./header";
+@import "./mediaqueries";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: $padding;
+    font-family:$font;
+}

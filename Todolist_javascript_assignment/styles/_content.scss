@@ -1,0 +1,120 @@
+.content{
+    padding: $padding;
+    width: 300px;
+    margin-inline: auto;
+    &_newtask{
+        display: flex;
+        padding: $padding;
+        margin-bottom: 40px;
+        &_input{
+            padding: $padding;
+            width: 300px;
+            font-family: $font;
+        }
+        &_button{
+            padding: $padding;
+            width: 60px;
+            background-color: $btncolor;
+            color: $btntextcolor;
+            border: $btnborder;
+            &:hover{
+                transform: $btntransform;
+            }
+        }
+    }
+    &_btnwrapper{
+        margin-top: 20px;
+        text-align: center;
+        &_button{
+            padding: 10px;
+            background-color: $btncolor;
+            color: $btntextcolor;
+            border: $btnborder;
+            border-radius: $btnbordrad;
+            &:hover{
+                transform: $btntransform;
+            }
+        }
+    }
+}
+
+.tasklist{
+    &:empty {
+        display: none;
+    }
+    &:empty + .tasklist_emptylist {
+        display: block;
+    }
+    &_emptylist{
+        display: none;
+        text-align: center;
+        &_img{
+            width: 300px;
+            height: auto;
+        }
+        &_text{
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        &_subtext{
+            font-size: 15px;
+        }
+    }
+    &_listitem{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $padding;
+        list-style-type: none;
+        min-height: 60px;
+        height: fit-content;
+        border: 1px solid lightgray;
+        &_check{
+            height: 18px;
+            width: 18px;
+            margin-left: 10px;
+        }
+        &_text{
+            width: 60%;
+            &.checked{
+                text-decoration: line-through;
+            }
+        }
+        .fa-trash{
+            color: rgba(255, 0, 0, 0.779);
+            font-size: 20px;
+            margin-right: 10px;
+            &:hover{
+                transform: $btntransform;
+            }
+        }
+        &_textinput{
+            padding: $padding;
+            width: 66%;
+            font-family: $font;
+        }
+        &_edit{
+            padding: $padding;
+            width: 16%;
+            background-color: $btncolor;
+            color: $btntextcolor;
+            border: $btnborder;
+            border-radius: $btnbordrad;
+            &:hover{
+                transform: $btntransform;
+            }
+        }
+        &_close{
+            padding: $padding;
+            width: 16%;
+            background-color: $btncolor;
+            color: $btntextcolor;
+            border: $btnborder;
+            border-radius: $btnbordrad;
+            &:hover{
+                transform: $btntransform;
+            }
+        }
+    }
+}

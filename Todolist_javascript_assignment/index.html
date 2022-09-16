@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Todo list</title>
+    <meta name="Make a todo list" content="ToDolist" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/bdf882e752.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header_title">TO DO:</h1>
+    </header>
+    <main class="content">
+      <div class="content_newtask">
+        <input
+          id="input"
+          class="content_newtask_input"
+          name="userinput"
+          type="text"
+          placeholder="New task"
+        />
+        <button id="newtask" class="content_newtask_button" value="new">
+          Add
+        </button>
+      </div>
+      <ul id="tasklist" class="tasklist"></ul>
+      <div class="tasklist_emptylist">
+        <img
+          id="empty"
+          class="tasklist_emptylist_img"
+          src="./images/empty list.jpg"
+        />
+        <h2 class="tasklist_emptylist_text">Your todo list is empty!</h2>
+        <p class="tasklist_emptylist_subtext">What is on your mind?</p>
+      </div>
+      <div class="content_btnwrapper">
+        <button id="clearlist" class="content_btnwrapper_button" value="delete">
+          Remove all tasks
+        </button>
+      </div>
+    </main>
+    <script src="/scripts/script.js" type="module" async defer></script>
+  </body>
+</html>

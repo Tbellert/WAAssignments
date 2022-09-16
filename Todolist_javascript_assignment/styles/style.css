@@ -1,0 +1,211 @@
+.content {
+  padding: 5px;
+  width: 300px;
+  margin-inline: auto;
+}
+
+.content_newtask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 40px;
+}
+
+.content_newtask_input {
+  padding: 5px;
+  width: 300px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.content_newtask_button {
+  padding: 5px;
+  width: 60px;
+  background-color: #0075ff;
+  color: white;
+  border: 1px solid;
+}
+
+.content_newtask_button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.content_btnwrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.content_btnwrapper_button {
+  padding: 10px;
+  background-color: #0075ff;
+  color: white;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.content_btnwrapper_button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tasklist:empty {
+  display: none;
+}
+
+.tasklist:empty + .tasklist_emptylist {
+  display: block;
+}
+
+.tasklist_emptylist {
+  display: none;
+  text-align: center;
+}
+
+.tasklist_emptylist_img {
+  width: 300px;
+  height: auto;
+}
+
+.tasklist_emptylist_text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tasklist_emptylist_subtext {
+  font-size: 15px;
+}
+
+.tasklist_listitem {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  list-style-type: none;
+  min-height: 60px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid lightgray;
+}
+
+.tasklist_listitem_check {
+  height: 18px;
+  width: 18px;
+  margin-left: 10px;
+}
+
+.tasklist_listitem_text {
+  width: 60%;
+}
+
+.tasklist_listitem_text.checked {
+  text-decoration: line-through;
+}
+
+.tasklist_listitem .fa-trash {
+  color: rgba(255, 0, 0, 0.779);
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.tasklist_listitem .fa-trash:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tasklist_listitem_textinput {
+  padding: 5px;
+  width: 66%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.tasklist_listitem_edit {
+  padding: 5px;
+  width: 16%;
+  background-color: #0075ff;
+  color: white;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.tasklist_listitem_edit:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.tasklist_listitem_close {
+  padding: 5px;
+  width: 16%;
+  background-color: #0075ff;
+  color: white;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.tasklist_listitem_close:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.header {
+  padding: 5px;
+}
+
+.header_title {
+  padding: 5px;
+  text-align: center;
+  font-size: 3em;
+}
+
+@media screen and (min-width: 400px) {
+  .content {
+    width: 400px;
+  }
+  .content_newtask_input {
+    width: 400px;
+  }
+  .content_newtask_button {
+    width: 60px;
+  }
+  .tasklist_emptylist_img {
+    width: 400px;
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    width: 600px;
+  }
+  .content_newtask_input {
+    width: 600px;
+  }
+  .content_newtask_button {
+    width: 60px;
+  }
+  .tasklist_emptylist_img {
+    width: 600px;
+    height: auto;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  padding: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
+/*# sourceMappingURL=style.css.map */

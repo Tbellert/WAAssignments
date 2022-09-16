@@ -1,0 +1,8 @@
+.header{
+    padding: $padding;
+    &_title{
+        padding: $padding;
+        text-align: center;
+        font-size: 3em;
+    }
+}
