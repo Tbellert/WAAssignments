@@ -19,7 +19,7 @@ export const getData = async function(){
 export const postData = async function(value){
     try{
         const data = {description: value, done: false};
-        fetch(baseUrl, {
+        await fetch(baseUrl, {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -36,7 +36,7 @@ export const postData = async function(value){
 export const putData = async function(description, id){
     try{
         const data = {description: description, done: false};
-        fetch(baseUrl + id, {
+        await fetch(baseUrl + id, {
           method: "PUT",
           body: JSON.stringify(data),
           headers: {
@@ -53,7 +53,7 @@ export const putData = async function(description, id){
 export const deleteData = async function(id){
     try{
         const data = {id};
-        fetch(baseUrl + id, {
+        await fetch(baseUrl + id, {
           method: "DELETE",
           body: JSON.stringify(data),
         });

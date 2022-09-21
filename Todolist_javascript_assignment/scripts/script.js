@@ -76,9 +76,10 @@ document.addEventListener("keydown", function(e){
 document.getElementById("tasklist").addEventListener('click', function(e){
     if(e.target && e.target.className == "fa-solid fa-trash"){
           const listItemId = e.target.parentNode.id;
-          deleteData(listItemId);
-          clearUL();
-          putDataInDom();
+          deleteData(listItemId).then(() => {
+            clearUL();
+            putDataInDom();
+          });
     };
 });
 
