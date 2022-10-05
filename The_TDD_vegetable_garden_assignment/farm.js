@@ -85,7 +85,6 @@ const getProfitForCrop  = (input, environmentFactors) => {
 };
 
 const getTotalProfit = (input, environmentFactors) => {
-    let result = 0;
     if(!environmentFactors){
         const totalYield = getTotalYield(input);
         console.log(totalYield);
@@ -96,47 +95,7 @@ const getTotalProfit = (input, environmentFactors) => {
         console.log (revenue - totalCost);
         return revenue - totalCost
     };
-
 };
-
-const corn = {
-    name: "corn",
-    yield: 30,
-    factor: {
-        sun: {
-            low: -50,
-            medium: 0,
-            high: 50,
-        },
-        wind: {
-            low: 0,
-            medium: -20,
-            high: -40,
-        },
-    },
-};
-const pumpkin = {
-    name: "pumpkin",
-    yield: 40,
-    factor: {
-        sun: {
-            low: -50,
-            medium: 0,
-            high: 50,
-        },
-        wind: {
-            low: 0,
-            medium: -20,
-            high: -40,
-        },
-    },
-};
-const crops = [
-    { crop: corn, numCrops: 5, cost: 2, salePrice: 3}, // 675 revenue, 10 cost
-    { crop: pumpkin, numCrops: 2, cost: 4, salePrice: 6}, // 720 revenue, 8 cost
-]; // total 1395 revenue - 18 cost = 1377
-
-getTotalProfit({crops});
 
 module.exports = {
 getYieldForPlant,
