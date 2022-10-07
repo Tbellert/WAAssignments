@@ -19,7 +19,7 @@ const applyMultipleEnvironmentFactors = (plant, environmentFactors) => {
         const plantFactor = plant.crop.factor[key];
         result += (plant.crop.yield / 100) * plantFactor[environmentKey];
     });
-    return result
+    return result * plant.numCrops;
 };
 
 const getYieldForCrop = (plant, environmentFactors) => {
@@ -27,7 +27,7 @@ const getYieldForCrop = (plant, environmentFactors) => {
     if(!environmentFactors){
         return cropYield;
     } else {
-        return applyMultipleEnvironmentFactors(plant, environmentFactors) * plant.numCrops + cropYield;
+        return applyMultipleEnvironmentFactors(plant, environmentFactors) + cropYield;
     };
 };
 
@@ -59,40 +59,36 @@ const getRevenueForCrop = (input, environmentFactors) =>{
     if (!environmentFactors) {
         let result = 0;
         input.crops.forEach((crops) => {
-            result += getTotalYield(input) * crops.salePrice;
+            result += (getYieldForCrop(crops)) * crops.salePrice;
         });
         return result;
     } else {
-        const totalYield = getTotalYield(input, environmentFactors);
-        let totalSales = 0;
+        let result = 0;
         input.crops.forEach((crops) => {
-            totalSales += crops.salePrice;
+            result += (getYieldForCrop(crops, environmentFactors)) * crops.salePrice;
         });
-        return totalYield * totalSales;
+        return result;
     };
 };
 
 const getProfitForCrop  = (input, environmentFactors) => {
+    const cost = getCostForCrop(input);
     if(!environmentFactors){
         const revenue = getRevenueForCrop(input);
-        const cost = getCostForCrop(input);
         return revenue - cost;
     } else {
         const revenue = getRevenueForCrop(input, environmentFactors);
-        const cost = getCostForCrop(input);
         return revenue - cost;
     };
 };
 
 const getTotalProfit = (input, environmentFactors) => {
+    const totalCost = getCostForCrop(input);
     if(!environmentFactors){
-        const totalYield = getTotalYield(input);
-        console.log(totalYield);
-        const totalCost = getCostForCrop(input);
-        console.log(totalCost);
         const revenue = getRevenueForCrop(input);
-        console.log(revenue);
-        console.log (revenue - totalCost);
+        return revenue - totalCost
+    } else {
+        const revenue = getRevenueForCrop(input, environmentFactors);
         return revenue - totalCost
     };
 };

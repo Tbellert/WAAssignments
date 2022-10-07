@@ -346,9 +346,9 @@ describe("getTotalProfit", () => {
             },
         };
         const crops = [
-            { crop: corn, numCrops: 5, cost: 2, salePrice: 3}, // 675 revenue, 10 cost
-            { crop: pumpkin, numCrops: 2, cost: 4, salePrice: 6}, // 720 revenue, 8 cost
-        ]; // total 1395 revenue - 18 cost = 1377
+            { crop: corn, numCrops: 5, cost: 2, salePrice: 3},
+            { crop: pumpkin, numCrops: 2, cost: 4, salePrice: 6},
+        ];
         const environmentFactors = {
             sun: "high",
             wind: "low",
