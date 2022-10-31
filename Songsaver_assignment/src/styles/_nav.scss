@@ -1,0 +1,30 @@
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.2em;
+    &_list{
+        display: flex;
+        gap: 10px;
+        list-style-type: none;
+        &_item {
+            padding: 20px 10px 20px 10px;
+        }
+        &_item a.active{
+            background-image: linear-gradient(rgb(42, 156, 0), yellow);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        &_item a{
+            text-decoration: none;
+            color: black;
+            padding: 20px;
+        }
+        &_item a:hover {
+            background-image: linear-gradient(rgb(42, 156, 0), yellow);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+    }
+}

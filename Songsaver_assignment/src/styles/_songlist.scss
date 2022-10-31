@@ -1,0 +1,53 @@
+.emptylist {
+    text-align: center;
+    &_title {
+        margin-top: 50px;
+    }
+    &_image {
+        height: 400px;
+    }
+}
+
+.wrapper {
+    margin-top: 20px;
+    padding: 20px;
+    &_title{
+        padding: 10px;
+    }
+    &_songtable {
+        &_header{
+            font-size: 1em;
+            height: 5vh;
+        }
+        &_body{
+            font-size: 0.8em;
+            &_row{
+                height: 40px;
+                &_item{
+                    &_remove{
+                        color:rgb(255, 0, 0);
+                        margin-top: 5px;
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
+            }
+        }
+        &_deletebtn{
+            margin-top: 50px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            background-image: linear-gradient(to right,rgb(255, 0, 0), yellow);
+            box-shadow: 0 0 20px #eee;
+            color: white;
+        }
+        &_deletebtn:hover{
+            background-position: right center;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@import "./header";
+@import "./nav";
+@import "./songcontainer";
+@import "./songfilter";
+@import "./songform";
+@import "./songlist";
+@import "./songlistitem";
+@import "./constants";
+@import "./mediaqueries";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
