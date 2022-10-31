@@ -5,8 +5,6 @@
     height: 20vh;
 
     &_bg-image {
-        filter: blur(1px);
-        -webkit-filter: blur(1px);
         height: 20vh;
         width: 100%;
         object-fit: cover;
@@ -18,12 +16,15 @@
     }
     &_text{
         &_title{
+        position: relative;
         font-size: 6em;
         background-image: linear-gradient(rgb(42, 156, 0), yellow);
-        color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
-        position: relative;
+        -webkit-text-fill-color: transparent;
+        -webkit-filter: drop-shadow(2px 2px #333);
+                filter: drop-shadow(2px 2px #333);
+
         }
     }
 }

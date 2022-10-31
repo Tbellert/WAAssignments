@@ -9,7 +9,7 @@ export default function Layout() {
     return (
         <>
             <header className="headerwrapper">
-                <img src={background} className="headerwrapper_bg-image"/>
+                <img src={background} alt="headerimage" className="headerwrapper_bg-image"/>
                 <div className="headerwrapper_text">
                     <h1 className="headerwrapper_text_title">Songsaver</h1>
                 </div>
