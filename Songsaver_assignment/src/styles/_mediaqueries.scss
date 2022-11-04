@@ -1,7 +1,17 @@
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 500px) {
     .headerwrapper{
         &_text{
             font-size:x-small;
+        }
+    }
+    .filterwrapper{
+        &_genre{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            &_checkbox {
+                margin-top: 10px;
+            }
         }
     }
     .emptylist{

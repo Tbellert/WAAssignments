@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux"
-import { addSong } from "../Features/form/formSlice"
+import { addSong } from "../app/features/form/formSlice"
 import { useForm } from "react-hook-form"
 
 export default function SongForm() {
@@ -52,26 +52,11 @@ export default function SongForm() {
                     {...register("genre", {required: "This input is required"})}
                     aria-invalid={errors.genre ? "true" : "false"}
                 >
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value=""
-                    >--Please Select--</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="rock"
-                    >Rock</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="pop"
-                    >Pop</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="classic"
-                    >Classic</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="jazz"
-                    >Jazz</option>
+                    <option className="songformwrapper_label_select_option">--Please Select--</option>
+                    <option className="songformwrapper_label_select_option" value="rock">Rock</option>
+                    <option className="songformwrapper_label_select_option" value="pop">Pop</option>
+                    <option className="songformwrapper_label_select_option" value="classic">Classic</option>
+                    <option className="songformwrapper_label_select_option" value="jazz">Jazz</option>
                 </select>
             </label>
             {errors.genre && <span className="songformwrapper_input_error" role="alert">{errors.genre?.message}</span>}
@@ -84,30 +69,12 @@ export default function SongForm() {
                     {...register("rating", {required: "This input is required"})}
                     aria-invalid={errors.rating ? "true" : "false"}
                 >
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value=""
-                    >--Please Select--</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="1"
-                    >1</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="2"
-                    >2</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="3"
-                    >3</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="4"
-                    >4</option>
-                    <option
-                        className="songformwrapper_label_select_option"
-                        value="5"
-                    >5</option>
+                    <option className="songformwrapper_label_select_option">--Please Select--</option>
+                    <option className="songformwrapper_label_select_option" value="1">1</option>
+                    <option className="songformwrapper_label_select_option" value="2">2</option>
+                    <option className="songformwrapper_label_select_option" value="3">3</option>
+                    <option className="songformwrapper_label_select_option" value="4">4</option>
+                    <option className="songformwrapper_label_select_option" value="5">5</option>
                 </select>
             </label>
             {errors.rating && <span className="songformwrapper_input_error" role="alert">{errors.rating?.message}</span>}

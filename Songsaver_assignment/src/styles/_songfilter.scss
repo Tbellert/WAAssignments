@@ -1,0 +1,36 @@
+.filterwrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    width: 100%;
+    height: fit-content;
+    &_genre{
+        display: flex;
+        &_cbwrapper{
+            &_label{
+                margin-left: 2px;
+            }
+            &_checkbox{
+                margin-left: 2px;
+                margin-right: 2px;
+            }
+        }
+    }
+    &_rating{
+        &_select{
+            &_option{
+                color: red;
+            }
+        }
+    }
+    &_sortby{
+        &_select{
+            &_option{
+                color: red;
+            }
+        }
+    }
+}
