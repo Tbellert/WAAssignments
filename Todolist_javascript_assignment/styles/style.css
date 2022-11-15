@@ -37,6 +37,7 @@
 }
 
 .content_btnwrapper_button {
+  display: none;
   padding: 10px;
   background-color: #0075ff;
   color: white;

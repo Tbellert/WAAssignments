@@ -10,9 +10,8 @@ export function Checkbox({ togglePreference, genre }) {
 
     return (
         <div className="filterwrapper_genre_cbwrapper">
-            <label className="filterwrapper_genre_cbwrapper_label">
-                <input className="filterwrapper_genre_cbwrapper_checkbox"type="checkbox" onChange={handleChange}/>
-            {genre}</label>
+            <input className="filterwrapper_genre_cbwrapper_checkbox"type="checkbox" onChange={handleChange}/>
+            <label className="filterwrapper_genre_cbwrapper_label">{genre}</label>
         </div>
     )
 }

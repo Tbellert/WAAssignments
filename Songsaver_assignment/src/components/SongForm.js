@@ -19,7 +19,7 @@ export default function SongForm() {
         reset()
     }
 
-    return(
+    return (
         <form 
             className="songformwrapper"
             onSubmit={handleSubmit(onSubmit)}
@@ -30,7 +30,7 @@ export default function SongForm() {
                 name="title"
                 {...register("title", {required: "This input is required"})}
                 aria-invalid={errors.title ? "true" : "false"} 
-                placeholder="Songtitle"
+                placeholder="Songtitle..."
             />
             {errors.title && <span className="songformwrapper_input_error" role="alert">{errors.title?.message}</span>}
 
@@ -40,7 +40,7 @@ export default function SongForm() {
                 name="artist"
                 {...register("artist", {required: "This input is required"})}
                 aria-invalid={errors.artist ? "true" : "false"}
-                placeholder="Artist"
+                placeholder="Artist..."
             />
             {errors.artist && <span className="songformwrapper_input_error" role="alert">{errors.artist?.message}</span>}
 
@@ -52,7 +52,7 @@ export default function SongForm() {
                     {...register("genre", {required: "This input is required"})}
                     aria-invalid={errors.genre ? "true" : "false"}
                 >
-                    <option className="songformwrapper_label_select_option">--Please Select--</option>
+                    <option className="songformwrapper_label_select_option" value="">--Please Select--</option>
                     <option className="songformwrapper_label_select_option" value="rock">Rock</option>
                     <option className="songformwrapper_label_select_option" value="pop">Pop</option>
                     <option className="songformwrapper_label_select_option" value="classic">Classic</option>
@@ -60,7 +60,7 @@ export default function SongForm() {
                 </select>
             </label>
             {errors.genre && <span className="songformwrapper_input_error" role="alert">{errors.genre?.message}</span>}
-
+          
             <label htmlFor="rating" className="songformwrapper_label">Rating:
                 <select 
                     id="rating" 
@@ -69,7 +69,7 @@ export default function SongForm() {
                     {...register("rating", {required: "This input is required"})}
                     aria-invalid={errors.rating ? "true" : "false"}
                 >
-                    <option className="songformwrapper_label_select_option">--Please Select--</option>
+                    <option className="songformwrapper_label_select_option" value="">--Please Select--</option>
                     <option className="songformwrapper_label_select_option" value="1">1</option>
                     <option className="songformwrapper_label_select_option" value="2">2</option>
                     <option className="songformwrapper_label_select_option" value="3">3</option>

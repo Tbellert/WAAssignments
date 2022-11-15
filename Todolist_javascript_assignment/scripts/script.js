@@ -3,6 +3,15 @@ import {deleteData, getData, postData, putData} from "./api_client.js"
 const list = document.querySelector(".tasklist");
 const clearAllBtn = document.getElementById("clearlist");
 
+const checkLengthOfLi = function() {
+    const liList = list.getElementsByTagName("LI").length;
+    if (liList > 0) {
+        clearAllBtn.style.display = "inline"
+    } else if (liList <= 0) {
+        clearAllBtn.style.display = "none"
+    }
+}
+
 // Get the data from the API
 const awaitData = async function(){
     const newArray = await getData();
@@ -33,6 +42,7 @@ const putDataInDom = async function(){
         newChild.append(textSpan);
         newChild.append(close);
         list.append(newChild);
+        checkLengthOfLi();
     });
 };
 
@@ -79,6 +89,7 @@ document.getElementById("tasklist").addEventListener('click', function(e){
           deleteData(listItemId).then(() => {
             clearUL();
             putDataInDom();
+            checkLengthOfLi();
           });
     };
 });
@@ -89,6 +100,7 @@ clearAllBtn.addEventListener("click", async function(){
     array.map(element => element._id).forEach((element) => {
         deleteData(element);
         clearUL();
+        checkLengthOfLi();
     });
 });
  

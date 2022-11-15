@@ -8,17 +8,28 @@
         &_genre{
             display: flex;
             flex-direction: column;
-            width: 100%;
+            width: 40%;
             &_checkbox {
                 margin-top: 10px;
             }
+            &_cbwrapper{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                &_label{
+                }
+                &_checkbox{
+                    
+                }
+            }
         }
+
     }
     .emptylist{
         &_image{
             height: 250px;
         }
     }
+
 }
 
 @media screen and (max-width: 800px) {
