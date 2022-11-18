@@ -23,29 +23,26 @@ export const dataSlice = createSlice({
     name: "data",
     initialState,
     reducers: {
-        filterData: (state, action) => {
-            const studentsNames = state.students.map(item => item.name)
-            if (!state.filters.includes(action.payload)) {
-                if (studentsNames.includes(action.payload)) {
-                    const toAdd = state.rawData.filter(item => item.name.includes(action.payload))
-                    return {...state, newData: state.newData.concat(toAdd)}
-                } else {
-                    const toAdd = state.rawData.filter(item => item.project.includes(action.payload))
-                    return {...state, newData: state.newData.concat(toAdd)}
-                }
-            } else {
-                if (studentsNames.includes(action.payload)) {
-                    return {...state, newData: state.newData.filter(item => !item.name.includes(action.payload)).map(item => item)}
-                } else {
-                    return {...state, newData: state.newData.filter(item => !item.project.includes(action.payload)).map(item => item)}
-                }
-            }
+        applyFilters: (state, action) => {
+
+            return {...state, newData: action.payload}
+            // const currentFilters = state.filters.map(item => item)
+            // console.log(currentFilters)
+            // const studentsNames = state.students.map(item => item.name)
+            // currentFilters.forEach(element => {
+            //     if (studentsNames.includes(element)) {
+            //         return {...state, newData: state.newData.filter(item => !item.name.includes(element))}
+            //     } else {
+            //         return {...state, newData: state.newData.filter(item => !item.project.includes(element))}
+            //     }
+            // })
+           
         },
         addFilter: (state, action) => {
             return {...state, filters: [...state.filters, action.payload]}
-        },
+        },        
         removeFilter: (state, action) => {
-            return {...state, filters: state.filters.filter((word) => word !== action.payload)}
+            return {...state, filters: state.filters.filter((item) => item !== action.payload)}
         },
         removeAllFilters: (state, action) => {
             return {...state, filters: state.filters.filter(item => !action.payload.includes(item))}
@@ -53,6 +50,6 @@ export const dataSlice = createSlice({
     }
 })
 
-export const {addFilter, removeFilter, filterData, removeAllFilters} = dataSlice.actions
+export const {addFilter, removeFilter, filterData, removeAllFilters, applyFilters} = dataSlice.actions
 
 export default dataSlice.reducer

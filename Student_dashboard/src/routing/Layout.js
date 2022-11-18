@@ -14,7 +14,7 @@ export default function Layout() {
     const allAssignmentNames = data.map(assignments => assignments.project)
     const assignmentNames = [...new Set(allAssignmentNames)].map((name, index) => {return {id: index + 1, name: name}})
 
-    const [allMenuValues, setAllMenuValues] = useState({students: false, assignments: false})
+    // const [allMenuValues, setAllMenuValues] = useState({students: false, assignments: false})
 
     return (
         <>
