@@ -40,9 +40,9 @@ export default function Chart() {
         <div>
             <h2 style={{textAlign: "center"}}>Average Rating for all students per assignment</h2>
             <div style={{display: "flex", justifyContent: "center"}}>
-                <Checkbox toggle={handleChange} name={"difficulty"}/>
-                <Checkbox toggle={handleChange} name={"fun"}/>
-                <Checkbox toggle={handleChange} name={"line"}/>
+                <Checkbox toggleCheckbox={handleChange} name={"difficulty"}/>
+                <Checkbox toggleCheckbox={handleChange} name={"fun"}/>
+                <Checkbox toggleCheckbox={handleChange} name={"line"}/>
             </div>
             <VictoryChart
                 domain={{y: [0, 5]}}

@@ -1,21 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit"
 import data from "../../data/data.json"
+import {students, assignments} from "../../data/mockData"
 
 const initialState = {
     rawData: data,
     newData: data,
-    students:[
-        {id: 1, name: 'Evelyn'}, 
-        {id: 2, name: 'Aranka'}, 
-        {id: 3, name: 'Floris'}, 
-        {id: 4, name: 'Hector'}, 
-        {id: 5, name: 'Martina'}, 
-        {id: 6, name: 'Maurits'}, 
-        {id: 7, name: 'Rahima'}, 
-        {id: 8, name:'Sandra'}, 
-        {id: 9, name: 'Wietske'}, 
-        {id: 10, name: 'Storm'}],
-    assignments: [],
+    students: students,
+    assignments: assignments,
     filters: []
 }
 
@@ -23,20 +14,29 @@ export const dataSlice = createSlice({
     name: "data",
     initialState,
     reducers: {
-        applyFilters: (state, action) => {
-
-            return {...state, newData: action.payload}
-            // const currentFilters = state.filters.map(item => item)
-            // console.log(currentFilters)
-            // const studentsNames = state.students.map(item => item.name)
-            // currentFilters.forEach(element => {
-            //     if (studentsNames.includes(element)) {
-            //         return {...state, newData: state.newData.filter(item => !item.name.includes(element))}
-            //     } else {
-            //         return {...state, newData: state.newData.filter(item => !item.project.includes(element))}
-            //     }
-            // })
-           
+        addFilterStudent: (state, action) => {
+            return {...state, 
+                filters: [...state.filters, action.payload],
+                newData: state.newData.filter(item => !item.name.includes(action.payload))
+            }
+        },        
+        removeFilterStudent: (state, action) => {
+            return {...state, 
+                filters: state.filters.filter((item) => item !== action.payload), 
+                newData: [...new Set([...state.newData, ...state.rawData.filter(item => item.name.includes(action.payload))])]
+            }
+        },
+        addFilterAssignment: (state, action) => {
+            return {...state, 
+                filters: [...state.filters, action.payload],
+                newData: state.newData.filter(item => !item.project.includes(action.payload))
+            }
+        },        
+        removeFilterAssignment: (state, action) => {
+            return {...state, 
+                filters: state.filters.filter((item) => item !== action.payload), 
+                newData: [...new Set([...state.newData, ...state.rawData.filter(item => item.project.includes(action.payload))])]
+            }
         },
         addFilter: (state, action) => {
             return {...state, filters: [...state.filters, action.payload]}
@@ -44,12 +44,9 @@ export const dataSlice = createSlice({
         removeFilter: (state, action) => {
             return {...state, filters: state.filters.filter((item) => item !== action.payload)}
         },
-        removeAllFilters: (state, action) => {
-            return {...state, filters: state.filters.filter(item => !action.payload.includes(item))}
-        },
     }
 })
 
-export const {addFilter, removeFilter, filterData, removeAllFilters, applyFilters} = dataSlice.actions
+export const {addFilterStudent, addFilterAssignment, removeFilterStudent, removeFilterAssignment, addFilter, removeFilter} = dataSlice.actions
 
 export default dataSlice.reducer

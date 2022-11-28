@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux"
 
-export function Checkbox({ toggle, name, display }) {
+export function Checkbox({ toggleCheckbox, name, display }) {
     const filter = useSelector(state => state.data.filters)
 
     function handleChange() {
-        toggle(name)
+        toggleCheckbox(name)
     }
 
     return (

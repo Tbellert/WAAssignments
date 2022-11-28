@@ -7,6 +7,7 @@ export default function Select({ input, handleSelectChange}) {
     return (
         <div>
             <select onChange={handleChange} >
+                <option>--Select--</option>
                 {input.map((item) => {
                     return (
                         <option 

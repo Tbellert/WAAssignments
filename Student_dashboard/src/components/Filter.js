@@ -1,69 +1,79 @@
 import { useSelector, useDispatch } from "react-redux"
-import { addFilter, removeFilter, filterData, removeAllFilters, applyFilters} from "../app/features/data/dataSlice"
+import { addFilterStudent, addFilterAssignment, removeFilterStudent, removeFilterAssignment} from "../app/features/data/dataSlice"
 import Select from "./Select"
-import Dropdown from "./Dropdown"
+import List from "./List"
 
 export default function Filter({ student, assignment, display}) {
+    const dispatch = useDispatch()
     const data = useSelector(state => state.data.rawData)
     const filter = useSelector(state => state.data.filters)
-    const newData = useSelector(state => state.data.newData)
-    const dispatch = useDispatch()
     const studentNames = useSelector(state => state.data.students)
     const names = studentNames.map(item => item.name)
-    
     const allAssignmentNames = data.map(assignments => assignments.project)
     const assignmentNames = [...new Set(allAssignmentNames)].map((name, index) => {return {id: index + 1, name: name}})
 
-    function filterData() {
-        const currentFilters = filter.map(item => item)
-        currentFilters.forEach(element => {
-            if (names.includes(element)) {
-                const result = newData.filter(item => !item.name.includes(element))
-                dispatch(applyFilters(result))
+    function applyAssignmentFilters() {
+        const activeAssignmentFilters = filter.filter(item => assignmentNames.map(assignment => assignment.name).includes(item))
+        activeAssignmentFilters.forEach(project => {
+            dispatch(removeFilterAssignment(project))
+            dispatch(addFilterAssignment(project))
+        })
+    }
+
+    function applyStudentFilters() {
+        const activeStudentFilters = filter.filter(item => names.includes(item))
+        activeStudentFilters.forEach(name => {
+            dispatch(removeFilterStudent(name))
+            dispatch(addFilterStudent(name))
+        })
+    }
+   
+    function handleCheckboxChange(name) {
+        if (names.includes(name)) {
+            if (filter.includes(name)) {
+                dispatch(removeFilterStudent(name))
+                applyAssignmentFilters()
             } else {
-                const result = newData.filter(item => !item.project.includes(element))
-                dispatch(applyFilters(result))
+                dispatch(addFilterStudent(name))
             }
-        })      
-    }
-       
-    // individual checkbox
-    function handleChange(name) {
-        if (filter.includes(name)) {
-            dispatch(removeFilter(name))
-            filterData()
         } else {
-            dispatch(addFilter(name))
-            filterData()
+            if (filter.includes(name)) {
+                dispatch(removeFilterAssignment(name))
+                applyStudentFilters()
+            } else {
+                dispatch(addFilterAssignment(name))
+            }
         }
-        // dispatch(applyFilters())
     }
 
-    // Select All button
-    function handleOnClick(eventNames) {
-        dispatch(removeAllFilters(eventNames))
-        filterData()
-        // dispatch(applyFilters())
+    function handleSelectButtonClick(eventNames) {
+        eventNames.forEach(name => {
+            if (names.includes(name)) {
+                dispatch(addFilterStudent(name))
+                dispatch(removeFilterStudent(name))
+                applyAssignmentFilters()
+            } else {
+                dispatch(addFilterAssignment(name))
+                dispatch(removeFilterAssignment(name))
+                applyStudentFilters()
+            }
+        })
     }
 
-    // Select Dropdown button
-    function setChange(name) {
+    function handleSelectChange(name) {
         if (names.includes(name)) {
             studentNames.forEach(item => {
-                console.log(`Added filter ${item.name}`)
-                dispatch(addFilter(item.name))
+                dispatch(addFilterStudent(item.name))
             })
-            filterData()
+            dispatch(removeFilterStudent(name))
+            applyAssignmentFilters()
         } else {
             assignmentNames.forEach(item => {
-                console.log(`Added filter ${item.name}`)
-                dispatch(addFilter(item.name))
+                dispatch(addFilterAssignment(item.name))
             })
-            filterData()
+            dispatch(removeFilterAssignment(name))
+            applyStudentFilters()
         }
-        console.log(`Removed filter ${name}`)
-        dispatch(removeFilter(name))
-        filterData()
     }
 
     return (
@@ -71,22 +81,20 @@ export default function Filter({ student, assignment, display}) {
             <div style={{width: "400px", textAlign: "center"}}>
                 { assignment ?          
                     <div>
-                        <h2>Students</h2>
                         <label>Select one student
-                           <Select linkType="students" input={studentNames} handleSelectChange={setChange}/>
+                           <Select linkType="students" input={studentNames} handleSelectChange={handleSelectChange}/>
                         </label>
-                        <Dropdown linkType="students" input={studentNames} display="list" handleOnChange={handleChange} handleOnClick={handleOnClick}/>
+                        <List linkType="students" input={studentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
                     </div>
                 :
                     null
                 }
                 { student ?
                     <div>
-                    <h2>Assignments</h2>
                         <label>Select one assignment
-                            <Select linkType="assignments" input={assignmentNames} handleSelectChange={setChange}/>
+                            <Select linkType="assignments" input={assignmentNames} handleSelectChange={handleSelectChange}/>
                         </label>
-                        <Dropdown linkType="assignments" input={assignmentNames} display="list" handleOnChange={handleChange} handleOnClick={handleOnClick}/>
+                        <List linkType="assignments" input={assignmentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
                     </div>
                 :
                     null        

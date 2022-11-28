@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./routing/Home"
 import About from "./routing/About"
-import Contact from "./routing/Contact"
 import Students from "./routing/Students"
 import Student from "./routing/Student"
 import Assignments from "./routing/Assignments"
@@ -22,7 +21,6 @@ export default function App() {
             <Route path="/assignments" element={<Assignments />}>
               <Route path=":assignmentName" element={<Assignment />} />
             </Route>
-            <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<main><p>There's nothing here!</p></main>} />
           </Route>

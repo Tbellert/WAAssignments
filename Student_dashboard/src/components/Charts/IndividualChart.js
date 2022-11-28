@@ -6,18 +6,14 @@ import { Checkbox } from "../Checkbox"
 export default function StudentChart({person, assignment}) {
     const data = useSelector(state => state.data.newData)
     const filter = useSelector(state => state.data.filters)
-    const dispatch = useDispatch()
-
-    const allStudentNames = data.map(students => students.name)
-    const studentNames = [...new Set(allStudentNames)]
-    const studentFilter = data.filter(item => item.name.includes(person))
-    
+    const studentNames = useSelector(state => state.data.students).map(item => item.name)
     const allAssignmentNames = data.map(assignments => assignments.project)
     const assignmentNames = [...new Set(allAssignmentNames)]
     const projectFilter = data.filter(item => item.project.includes(assignment))
-
+    const studentFilter = data.filter(item => item.name.includes(person))
     const projectAverageFilter = getAverages()
-    
+    const dispatch = useDispatch()
+
     function getAverages() {
         const difficulty = data.filter(item => item.project.includes(assignment)).map(item => item.difficulty)
         const averageDifficulty = difficulty.reduce((a, b) => a + b, 0) / difficulty.length
@@ -38,10 +34,10 @@ export default function StudentChart({person, assignment}) {
         <div>
             <h2>{person ? person : assignment}</h2>
             <div style={{display: "flex", justifyContent: "center"}}>
-                <Checkbox toggle={handleChange} name={"difficulty"}/>
-                <Checkbox toggle={handleChange} name={"fun"}/>
-                {person ? null : <Checkbox toggle={handleChange} name={"average"}/> }
-                <Checkbox toggle={handleChange} name={"line"} />
+                <Checkbox toggleCheckbox={handleChange} name={"difficulty"}/>
+                <Checkbox toggleCheckbox={handleChange} name={"fun"}/>
+                {person ? null : <Checkbox toggleCheckbox={handleChange} name={"average"}/> }
+                <Checkbox toggleCheckbox={handleChange} name={"line"} />
             </div>
             <VictoryChart
                 domain={{y: [0, 5]}}
