@@ -1,4 +1,4 @@
-export default function Select({ input, handleSelectChange}) {
+export default function Select({ type, input, handleSelectChange}) {
 
     function handleChange(event) {
         handleSelectChange(event.target.value)
@@ -7,7 +7,7 @@ export default function Select({ input, handleSelectChange}) {
     return (
         <div>
             <select className="w-full text-center mb-2" onChange={handleChange} >
-                <option>--Select--</option>
+                <option>--Click to select one {type}--</option>
                 {input.map((item) => {
                     return (
                         <option 

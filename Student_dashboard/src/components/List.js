@@ -26,7 +26,7 @@ export default function List({ input, linkType, display, handleCheckboxOnChange,
                     )
                 })}
             </ul>
-            <h3 className="mt-2 text-center text-xs italic">Click on {linkType} to show detailed chart</h3>
+            <h3 className="mt-2 text-center text-xs italic">Click on name of {linkType} to show detailed chart</h3>
             {display === "list" ?<button className="text-white p-2 w-32 bg-blue-500 rounded-full shadow-lg to-black m-2" onClick={handleSelectButtonClick} name={names}>Select All</button> : null}
         </div>
     )

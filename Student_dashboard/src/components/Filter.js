@@ -81,9 +81,8 @@ export default function Filter({ student, assignment, display}) {
             <div className="w-96 text-center">
                 { assignment ?          
                     <div className="border shadow-md mb-3">
-                        <label>Select Student
-                           <Select linkType="students" input={studentNames} handleSelectChange={handleSelectChange}/>
-                        </label>
+                        <label className="font-bold">Select Student</label>
+                        <Select linkType="students" type="student" input={studentNames} handleSelectChange={handleSelectChange}/>
                         <List linkType="students" input={studentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
                     </div>
                 :
@@ -91,9 +90,8 @@ export default function Filter({ student, assignment, display}) {
                 }
                 { student ?
                     <div className="border shadow-md mb-3">
-                        <label>Select Assignment
-                            <Select linkType="assignments" input={assignmentNames} handleSelectChange={handleSelectChange}/>
-                        </label>
+                        <label className="font-bold">Select Assignment</label>
+                        <Select linkType="assignments" type="assignment" input={assignmentNames} handleSelectChange={handleSelectChange}/>
                         <List linkType="assignments" input={assignmentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
                     </div>
                 :
