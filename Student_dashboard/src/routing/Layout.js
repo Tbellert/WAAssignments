@@ -8,7 +8,7 @@ export default function Layout() {
 
     return (
         <>
-            <header className="h-32 border shadow-md flex justify-center md:justify-start items-center bg-blue-500" >
+            <header className="h-32 shadow-md flex justify-center md:justify-start items-center bg-blue-500" >
                 <img src={Logo} alt="WINC Logo" className="w-28 ml-2 bg-white p-4 border shadow-md rounded-full"/>
                 <h1 className="ml-2 text-2xl font-bold uppercase bg-white bg-clip-text text-transparent">Student Dashboard</h1>
             </header>
