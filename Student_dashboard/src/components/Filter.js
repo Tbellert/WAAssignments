@@ -81,7 +81,7 @@ export default function Filter({ student, assignment, display}) {
             <div className="w-96 text-center">
                 { assignment ?          
                     <div className="border shadow-md mb-3">
-                        <label className="">Select Student
+                        <label>Select Student
                            <Select linkType="students" input={studentNames} handleSelectChange={handleSelectChange}/>
                         </label>
                         <List linkType="students" input={studentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
