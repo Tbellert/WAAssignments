@@ -6,7 +6,7 @@ export default function Select({ input, handleSelectChange}) {
 
     return (
         <div>
-            <select onChange={handleChange} >
+            <select className="w-full text-center mb-2" onChange={handleChange} >
                 <option>--Select--</option>
                 {input.map((item) => {
                     return (
@@ -15,8 +15,8 @@ export default function Select({ input, handleSelectChange}) {
                             value={item.name}
                         >{item.name}
                         </option>
-                    )
-                })}
+                    )})
+                }
             </select>
         </div>
     )

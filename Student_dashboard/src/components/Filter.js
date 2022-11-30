@@ -78,10 +78,10 @@ export default function Filter({ student, assignment, display}) {
 
     return (
         display ?
-            <div style={{width: "400px", textAlign: "center"}}>
+            <div className="w-96 text-center">
                 { assignment ?          
-                    <div>
-                        <label>Select one student
+                    <div className="border shadow-md mb-3">
+                        <label className="">Select Student
                            <Select linkType="students" input={studentNames} handleSelectChange={handleSelectChange}/>
                         </label>
                         <List linkType="students" input={studentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>
@@ -90,8 +90,8 @@ export default function Filter({ student, assignment, display}) {
                     null
                 }
                 { student ?
-                    <div>
-                        <label>Select one assignment
+                    <div className="border shadow-md mb-3">
+                        <label>Select Assignment
                             <Select linkType="assignments" input={assignmentNames} handleSelectChange={handleSelectChange}/>
                         </label>
                         <List linkType="assignments" input={assignmentNames} display="list" handleCheckboxOnChange={handleCheckboxChange} handleSelectButtonOnClick={handleSelectButtonClick}/>

@@ -5,9 +5,9 @@ import Filter from "../components/Filter"
 export default function Assignment() {
     let params = useParams()  
     return (
-        <div style={{display: "flex", width: "100%"}}>
+        <main className="flex flex-wrap justify-center w-full h-fit gap-2">
             <IndividualChart assignment={params.assignmentName}/>
             <Filter assignment={true} display={true}/>
-        </div>
+        </main>
     )
 }

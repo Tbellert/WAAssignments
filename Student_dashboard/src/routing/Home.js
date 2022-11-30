@@ -3,7 +3,7 @@ import Filter from "../components/Filter"
 
 export default function Home() {
     return (
-        <main style={{display: "flex", width: "100%"}}>
+        <main className="flex flex-wrap justify-center gap-2 w-full">
             <Chart />
             <Filter display={true} student={true} assignment={true}/>
         </main>

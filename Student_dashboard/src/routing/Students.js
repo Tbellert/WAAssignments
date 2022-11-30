@@ -6,13 +6,15 @@ export default function Students() {
     const location = useLocation()
     const { pathname } = location
     const splitLocation = pathname.split("/")
-
     const studentData = useSelector(state => state.data.students)
 
     return (
-        <main style={{width: "80%"}}>
-            {splitLocation[2] ? null : <StudentCard input={studentData}/>}
-            <Outlet />
-        </main>
+        splitLocation[2] ?
+                <Outlet /> 
+        :
+            <main className="flex gap-2 flex-wrap justify-center mt-4 ml-4">
+                <StudentCard input={studentData}/>
+                <Outlet />
+            </main> 
     )
 }

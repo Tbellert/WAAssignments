@@ -10,10 +10,10 @@ export default function Student() {
     const studentData = useSelector(state => state.data.students)
 
     return (
-        <div style={{display: "flex", width: "100%"}} >
+        <main className="flex flex-wrap justify-center w-full gap-2">
             <IndividualChart person={params.studentName}/>
             <Filter student={true} display={true}/>
             <StudentCard input={studentData.filter(item => item.name.includes(params.studentName))}/>
-        </div>
+        </main>
     )
 }

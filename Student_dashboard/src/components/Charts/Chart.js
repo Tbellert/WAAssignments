@@ -1,4 +1,4 @@
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryContainer, VictoryGroup, VictoryLine} from "victory"
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryGroup, VictoryLine, VictoryZoomContainer } from "victory"
 import { useSelector, useDispatch } from "react-redux"
 import { addFilter, removeFilter } from "../../app/features/data/dataSlice"
 import { Checkbox } from "../Checkbox"
@@ -37,20 +37,23 @@ export default function Chart() {
     }
 
     return (
-        <div>
-            <h2 style={{textAlign: "center"}}>Average Rating for all students per assignment</h2>
-            <div style={{display: "flex", justifyContent: "center"}}>
+        <div className="h-2/3 border shadow-md">
+            <h2 className="text-center font-bold text-xs md:text-xl mb-2">Average Rating for all students per assignment</h2>
+            <h3 className="text-center text-xs italic">Drag to pan, scroll to zoom </h3>
+            <div className="flex justify-center gap-2">
                 <Checkbox toggleCheckbox={handleChange} name={"difficulty"}/>
                 <Checkbox toggleCheckbox={handleChange} name={"fun"}/>
                 <Checkbox toggleCheckbox={handleChange} name={"line"}/>
             </div>
             <VictoryChart
+                width={1000}
+                height={577}
                 domain={{y: [0, 5]}}
                 domainPadding={{x:10, y:0}}
-                padding={{top: 10, bottom: 80, right: 10, left: 30}} 
-                containerComponent={<VictoryContainer responsive={true} />}
+                padding={{top: 10, bottom: 120, right: 10, left: 30}}
+                containerComponent={<VictoryZoomContainer />} 
             >
-                {filter.includes("line") ? 
+            {filter.includes("line") ? 
                     <VictoryGroup>
                     {!filter.includes("difficulty") ? 
                     <VictoryLine
@@ -71,7 +74,7 @@ export default function Chart() {
                     />: null }
                     </VictoryGroup>
                 :
-                    <VictoryGroup offset={3} style={{ data: {width: 3}}}>
+                    <VictoryGroup offset={8} style={{ data: {width: 8}}}>
                     {!filter.includes("difficulty") ? 
                         <VictoryBar
                             alignment="end"
@@ -97,12 +100,12 @@ export default function Chart() {
                     dependentAxis
                     tickValues={[0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]} 
                     style={{ 
-                        tickLabels: { fontSize: 6 },
+                        tickLabels: { fontSize: 12 },
                         grid: {stroke: "lightGray", strokeWidth: 0.5 },
                     }}/>
                 <VictoryAxis
                     tickValues={onlyNames}
-                    style={{tickLabels: { fontSize: 6, angle: 90, textAnchor: "start"}}} />
+                    style={{tickLabels: { fontSize: 12, angle: 90, textAnchor: "start"}}} />
             </VictoryChart>
         </div>
     )
