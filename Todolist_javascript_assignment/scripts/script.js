@@ -23,7 +23,7 @@ const putDataInDom = async function(){
     const ArrayWithData = await awaitData();
     ArrayWithData.forEach((element) => {
         const newChild = document.createElement("li");
-        newChild.id = element._id;
+        newChild.id = element.id;
         newChild.className = "tasklist_listitem";
         // span to put textnode in
         const textSpan = document.createElement("span");
@@ -55,10 +55,10 @@ const clearUL = function(){
 
 // Input new task on clicking add button
 const btnNewTask = document.getElementById("newtask");
-btnNewTask.addEventListener("click", function(){
+btnNewTask.addEventListener("click", async function(){
     const textBar = document.getElementById("input").value;
     if (textBar !== "") {
-        postData(textBar);
+        await postData(textBar);
         clearUL();
         putDataInDom();
         document.getElementById("input").value = "";
@@ -68,11 +68,11 @@ btnNewTask.addEventListener("click", function(){
 });
 
 // Input new task on keydown, because we all love tapping enter.
-document.addEventListener("keydown", function(e){
+document.addEventListener("keydown", async function(e){
     const textBar = document.getElementById("input").value;
     if (e.keyCode === 13) {
         if (textBar !== "") {
-            postData(textBar);
+            await postData(textBar);
             clearUL();
             putDataInDom();
             document.getElementById("input").value = "";
@@ -97,7 +97,7 @@ document.getElementById("tasklist").addEventListener('click', function(e){
 // Delete all tasks, because it's silly to delete them one by one.
 clearAllBtn.addEventListener("click", async function(){
     const array = await awaitData();
-    array.map(element => element._id).forEach((element) => {
+    array.map(element => element.id).forEach((element) => {
         deleteData(element);
         clearUL();
         checkLengthOfLi();
@@ -105,7 +105,7 @@ clearAllBtn.addEventListener("click", async function(){
 });
  
 // Edit a task
-document.getElementById("tasklist").addEventListener('click',function(e){
+document.getElementById("tasklist").addEventListener('click', function(e){
     if(e.target && e.target.className == "tasklist_listitem_text"){
         const li = e.target.parentNode;
         const id = li.id;
@@ -138,9 +138,10 @@ document.getElementById("tasklist").addEventListener('click',function(e){
         editBtn.addEventListener("click", function(){
             const newText = document.getElementById("newinput").value;
             if (newText !== "") {
-                putData(newText, id);
-                clearUL();
-                putDataInDom();
+                putData(newText, id).then(()=> {
+                    clearUL();
+                    putDataInDom();
+                });
             } else {
                 return alert("The edit has no value! Please give a value");
             };
@@ -158,5 +159,17 @@ list.addEventListener('click', function(e) {
   if (e.target.tagName === "INPUT") {
     const text = e.target.parentNode.childNodes[1];
     text.classList.toggle("checked");
+    const id = e.target.parentNode.id;
+    // if (text.classList[1] === "checked") {
+    //     putData(false, id).then(()=> {
+    //         clearUL();
+    //         putDataInDom();
+    //     });
+    // } else {
+    //     putData(true, id).then(()=> {
+    //         clearUL();
+    //         putDataInDom();
+    //     });
+    // }
   };
 }, false);
