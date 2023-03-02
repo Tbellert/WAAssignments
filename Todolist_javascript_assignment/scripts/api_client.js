@@ -9,7 +9,6 @@ export const getData = async function(){
             }, 
         });
         const data = await response.json();
-        console.log(data);
         return(data);
     } catch (error) {
         console.log(error);
@@ -44,7 +43,6 @@ export const putData = async function(description, id){
               "Content-Type": "application/json",
           },
         });
-        console.log(data);
         return data;
     } catch(error){
         console.log(error);
@@ -52,9 +50,9 @@ export const putData = async function(description, id){
 };
 
 // PUT - checked
-export const putDataMarked = async function(done, id){
+export const putDataMarked = async function(id, description, done){
     try{
-        const data = {id: id, done: done};
+        const data = {id: id, description: description, done: done};
         await fetch(baseUrl + "/checked/" + id, {
           method: "PUT",
           body: JSON.stringify(data),
@@ -62,7 +60,6 @@ export const putDataMarked = async function(done, id){
               "Content-Type": "application/json",
           },
         });
-        console.log(data);
         return data;
     } catch(error){
         console.log(error);
