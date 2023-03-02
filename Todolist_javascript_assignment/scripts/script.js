@@ -1,4 +1,4 @@
-import {deleteData, getData, postData, putData} from "./api_client.js"
+import {deleteData, getData, postData, putData, putDataMarked} from "./api_client.js"
 
 const list = document.querySelector(".tasklist");
 const clearAllBtn = document.getElementById("clearlist");
@@ -34,6 +34,10 @@ const putDataInDom = async function(){
         const check = document.createElement("input");
         check.className = "tasklist_listitem_check";
         check.type = "checkbox"
+        if (element.done == true) {
+            check.checked = true;
+            textSpan.classList.add("checked");
+        }
         // btn to delete li
         const close = document.createElement("span");
         close.className = "fa-solid fa-trash";
@@ -58,10 +62,11 @@ const btnNewTask = document.getElementById("newtask");
 btnNewTask.addEventListener("click", async function(){
     const textBar = document.getElementById("input").value;
     if (textBar !== "") {
-        await postData(textBar);
-        clearUL();
-        putDataInDom();
-        document.getElementById("input").value = "";
+        await postData(textBar).then(() => {
+            clearUL();
+            putDataInDom();
+            document.getElementById("input").value = "";
+        });
     } else {
         return alert("Please enter a description!");
     };
@@ -72,10 +77,11 @@ document.addEventListener("keydown", async function(e){
     const textBar = document.getElementById("input").value;
     if (e.keyCode === 13) {
         if (textBar !== "") {
-            await postData(textBar);
-            clearUL();
-            putDataInDom();
-            document.getElementById("input").value = "";
+            await postData(textBar).then(() => {
+                clearUL();
+                putDataInDom();
+                document.getElementById("input").value = "";
+            });
         } else {
             return alert("Please enter a description!");
         }; 
@@ -156,20 +162,21 @@ document.getElementById("tasklist").addEventListener('click', function(e){
 
 // Line-through text on clicking checkbox
 list.addEventListener('click', function(e) {
-  if (e.target.tagName === "INPUT") {
+  if (e.target.type === "checkbox") {
     const text = e.target.parentNode.childNodes[1];
     text.classList.toggle("checked");
     const id = e.target.parentNode.id;
-    // if (text.classList[1] === "checked") {
-    //     putData(false, id).then(()=> {
-    //         clearUL();
-    //         putDataInDom();
-    //     });
-    // } else {
-    //     putData(true, id).then(()=> {
-    //         clearUL();
-    //         putDataInDom();
-    //     });
-    // }
+    const description = text.textContent;
+    if (e.target.checked == false) {
+        putDataMarked(id, description, false).then(()=> {
+            clearUL();
+            putDataInDom();
+        });
+    } else {
+        putDataMarked(id, description, true).then(()=> {
+            clearUL();
+            putDataInDom();
+        });
+    }
   };
 }, false);
